@@ -19,6 +19,57 @@
         <script src="js/jquery.easing.min.js"></script>
         <script src='../../../../../../ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
         <script src="../../../../../../m.servedby-buysellads.com/monetization.js" type="text/javascript"></script>
+
+<style>
+#customer-feedback {
+    background-color: #f8f8f8;
+    padding: 40px 0;
+}
+
+.feedback-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.feedback-form form {
+    margin-top: 20px;
+}
+
+.feedback-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.feedback-form textarea {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+}
+
+.feedback-form button {
+    padding: 10px 20px;
+    background-color: #f39c12;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.feedback-list {
+    margin-top: 40px;
+}
+
+.feedback-item {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.feedback-item .user {
+    font-weight: bold;
+}
+
+</style>
     </head>
     <body>
     <body>
@@ -112,6 +163,38 @@
                 </div>
             </div>
         </div>
+ <!-- Customer Feedback Section -->
+    <section id="customer-feedback">
+        <h2 style="font-size: 40px; font-weight: 500; text-align: center; margin-bottom: 20px;">
+            Customer Feedback
+        </h2>
+
+        <!-- Feedback Form -->
+        <div class="feedback-form">
+            <form action="submit_feedback.jsp" method="post">
+                <div class="form-group">
+                    <label for="feedback">Your Feedback:</label>
+                    <textarea class="form-control" rows="4" id="feedback" name="feedback" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit Feedback</button>
+            </form>
+        </div>
+
+        <!-- Displaying Feedbacks -->
+        <div class="feedback-list">
+            <h3>Recent Feedbacks</h3>
+            <!-- Mock-up feedbacks (replace with dynamic data from your database) -->
+            <div class="feedback-item">
+                <p class="user">John Doe</p>
+                <p class="comment">Excellent service! Fast delivery and high-quality products.</p>
+            </div>
+            <div class="feedback-item">
+                <p class="user">Jane Smith</p>
+                <p class="comment">Great variety of products. Will shop again!</p>
+            </div>
+            <!-- Add more feedback items as needed -->
+        </div>
+    </section>
                 
         <jsp:include page="footer.jsp"></jsp:include>
     </body>
