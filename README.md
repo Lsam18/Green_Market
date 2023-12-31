@@ -64,7 +64,7 @@ Welcome to the GREEN Supermarket Modernization Project! This project focuses on 
 
 ## Contributing
 
-If you'd like to contribute to the project, please follow our [Contribution Guidelines](CONTRIBUTING.md).
+If you'd like to contribute to the project, please follow our please contact us.
 
 ## License
 
