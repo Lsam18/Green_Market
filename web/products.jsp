@@ -171,7 +171,7 @@
 
         <!-- Feedback Form -->
         <div class="feedback-form">
-            <form action="submit_feedback.jsp" method="post">
+            <form action="" method="post">
                 <div class="form-group">
                     <label for="feedback">Your Feedback:</label>
                     <textarea class="form-control" rows="4" id="feedback" name="feedback" required></textarea>
@@ -181,7 +181,7 @@
         </div>
 
         <!-- Displaying Feedbacks -->
-        <div class="feedback-list">
+        <div id="feedback-list" class="feedback-list">
             <h3>Recent Feedbacks</h3>
             <!-- Mock-up feedbacks (replace with dynamic data from your database) -->
             <div class="feedback-item">
@@ -195,7 +195,55 @@
             <!-- Add more feedback items as needed -->
         </div>
     </section>
-                
+    <script>
+        function submitFeedback() {
+            // Get the feedback text from the textarea
+            var feedbackText = document.getElementById("feedback").value;
+    
+            // Simulate submitting feedback to the server (in this case, there's no actual server-side script)
+            // For now, let's assume a successful submission and update the feedback list
+            var newFeedback = {
+                user: "New User",  // You may replace this with the actual user name
+                comment: feedbackText
+            };
+    
+            // Clear the feedback form
+            document.getElementById("feedback").value = '';
+    
+            // Add the new feedback to the feedback list
+            var feedbackList = document.getElementById("feedback-list");
+    
+            var feedbackItem = document.createElement("div");
+            feedbackItem.className = "feedback-item";
+    
+            var userParagraph = document.createElement("p");
+            userParagraph.className = "user";
+            userParagraph.textContent = newFeedback.user;
+    
+            var commentParagraph = document.createElement("p");
+            commentParagraph.className = "comment";
+            commentParagraph.textContent = newFeedback.comment;
+    
+            feedbackItem.appendChild(userParagraph);
+            feedbackItem.appendChild(commentParagraph);
+    
+            // Insert the new feedback item at the beginning of the list
+            feedbackList.insertBefore(feedbackItem, feedbackList.firstChild);
+    
+            // Display a feedback submitted message
+            alert('Feedback submitted!');
+        }
+    
+        // Attach the submitFeedback function to the form's onsubmit event
+        document.querySelector('.feedback-form form').onsubmit = function (event) {
+            event.preventDefault();  // Prevent the default form submission behavior
+            submitFeedback();        // Call the custom submitFeedback function
+        };
+    </script>
+    
+    
+    
+    
         <jsp:include page="footer.jsp"></jsp:include>
     </body>
 </html>
