@@ -21,7 +21,7 @@ import com.connection.DatabaseConnection;
 public class AddProducts extends HttpServlet {
 
     //Path where all the images are stored
-    private final String UPLOAD_DIRECTORY = "C:\\Users\\Raveen Gunawardana\\Documents\\NetBeansProjects\\OnlineShoppingSystem\\web\\uploads";
+    private final String UPLOAD_DIRECTORY = "/Users/lsam.28/Documents/Hacktoberfest 2023/shopping/OnlineShoppingSystem/web/uploads";
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
