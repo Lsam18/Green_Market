@@ -11,11 +11,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.disk.DiskFileItemFactory;
-import org.apache.commons.fileupload.servlet.ServletFileUpload;
+
 
 import com.connection.DatabaseConnection;
+import org.apache.tomcat.util.http.fileupload.FileItem;
+import org.apache.tomcat.util.http.fileupload.RequestContext;
+import org.apache.tomcat.util.http.fileupload.disk.DiskFileItemFactory;
+import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 
 @WebServlet("/AddProducts")
 public class AddProducts extends HttpServlet {
@@ -32,7 +34,7 @@ public class AddProducts extends HttpServlet {
         if (ServletFileUpload.isMultipartContent(request)) {
             try {
                 //Taking all image requests
-                List<FileItem> multiparts = new ServletFileUpload(new DiskFileItemFactory()).parseRequest(request);
+                List<FileItem> multiparts = new ServletFileUpload(new DiskFileItemFactory()).parseRequest((RequestContext) request);
                 String imageName = null;
                 String productName = null;
                 String productQuantity = null;
@@ -93,8 +95,7 @@ public class AddProducts extends HttpServlet {
                         //Response send to the admin-add-product.jsp
                         response.sendRedirect("admin-add-product.jsp");
                     }
-                } catch (Exception e) {
-                    e.printStackTrace();
+                } catch (IOException e) {
                 }
             } catch (Exception ex) {
                 //If any occur occured
